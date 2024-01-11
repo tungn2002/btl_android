@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Btl_android"
         tools:targetApi="31">
         <activity
+            android:name=".QuanLyLichTourActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddLichTourActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddTourActivity"
             android:exported="false" />
         <activity

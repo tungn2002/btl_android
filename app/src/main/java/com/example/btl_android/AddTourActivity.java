@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.btl_android.tour.Tour;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class AddTourActivity extends AppCompatActivity {
+    TextView tv;
     Button b2;
     EditText ten;
     EditText song;
@@ -45,7 +47,9 @@ public class AddTourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tour);
+        tv=findViewById(R.id.textView29);
 //hien spinner
+
         s=findViewById(R.id.spinner);
         khachSanIds = new ArrayList<>();
         spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, khachSanIds);
@@ -70,7 +74,42 @@ public class AddTourActivity extends AppCompatActivity {
             }
         });
 //
+//test lay id:
+        DatabaseReference myRef4 = database.getReference("tour");
 
+        myRef4.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int maxId = 0; // Khởi tạo biến lưu trữ ID lớn nhất
+
+                for (DataSnapshot khachSanSnapshot : dataSnapshot.getChildren()) {
+                    String khachSanId = khachSanSnapshot.getKey();
+
+                    // Chuyển đổi ID từ String sang int
+                    int id = Integer.parseInt(khachSanId);
+
+                    // So sánh và cập nhật giá trị ID lớn nhất
+                    if (id > maxId) {
+                        maxId = id;
+                    }
+                }
+
+                // Gán giá trị ID lớn nhất vào biến int
+                int largestId = maxId+1;
+                tv.setText(String.valueOf(largestId));
+                // Sử dụng largestId de them:
+
+
+                //
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Xử lý khi có lỗi xảy ra
+            }
+        });
+
+//
         ten = findViewById(R.id.editTextText);
         song = findViewById(R.id.editTextNumber);
         diachi = findViewById(R.id.editTextText3);
@@ -99,7 +138,7 @@ public class AddTourActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //
                 Tour a=new Tour();
-                a.setIdtour(2);
+                a.setIdtour(Integer.valueOf(tv.getText().toString()));
                 a.setTentour(ten.getText().toString());
                 a.setSonguoi(Integer.valueOf(song.getText().toString()));
                 a.setDiachixuatphat(diachi.getText().toString());
@@ -112,7 +151,8 @@ public class AddTourActivity extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("tour");
 
                 myRef.child(String.valueOf(a.getIdtour())).setValue(a);
-
+                int ht=Integer.valueOf(tv.getText().toString())+1;
+                tv.setText(String.valueOf(ht));
                 // Thực hiện các thao tác khác với dữ liệu tour và ảnh đã chọn ở đây
                 //if (base64Image != null) {
                     // Sử dụng base64Image để lưu vào Firebase
