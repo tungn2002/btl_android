@@ -111,7 +111,6 @@ public class AddTourActivity extends AppCompatActivity {
 
 //
         ten = findViewById(R.id.editTextText);
-        song = findViewById(R.id.editTextNumber);
         diachi = findViewById(R.id.editTextText3);
         gia = findViewById(R.id.editTextNumber2);
         lich = findViewById(R.id.editTextTextMultiLine);
