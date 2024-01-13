@@ -3,7 +3,6 @@ package com.example.btl_android.tour;
 public class Tour {
     private int idtour;
     private String tentour;
-    private int songuoi;
     private String diachixuatphat;
     private double dongia;
     private String lichtrinh;
@@ -13,7 +12,6 @@ public class Tour {
     public Tour(int idtour, String tentour, int songuoi, String diachixuatphat, double dongia, String lichtrinh, int idkhachsan, String image) {
         this.idtour = idtour;
         this.tentour = tentour;
-        this.songuoi = songuoi;
         this.diachixuatphat = diachixuatphat;
         this.dongia = dongia;
         this.lichtrinh = lichtrinh;
@@ -38,14 +36,6 @@ public class Tour {
 
     public void setTentour(String tentour) {
         this.tentour = tentour;
-    }
-
-    public int getSonguoi() {
-        return songuoi;
-    }
-
-    public void setSonguoi(int songuoi) {
-        this.songuoi = songuoi;
     }
 
     public String getDiachixuatphat() {

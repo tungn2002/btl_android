@@ -140,7 +140,6 @@ public class AddTourActivity extends AppCompatActivity {
                 Tour a=new Tour();
                 a.setIdtour(Integer.valueOf(tv.getText().toString()));
                 a.setTentour(ten.getText().toString());
-                a.setSonguoi(Integer.valueOf(song.getText().toString()));
                 a.setDiachixuatphat(diachi.getText().toString());
                 a.setDongia(Double.valueOf(gia.getText().toString()));
                 a.setLichtrinh(lich.getText().toString());

@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.btl_android.ChiTietTourActivity;
 import com.example.btl_android.QuanLyActivity;
 import com.example.btl_android.R;
 import com.google.firebase.database.DatabaseReference;
@@ -57,7 +58,11 @@ public class DKTourAdapter extends RecyclerView.Adapter<DKTourAdapter.ViewHolder
                 Intent intent = new Intent(context, QuanLyActivity.class);
                 context.startActivity(intent);
 */
-                Toast.makeText(context, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ChiTietTourActivity.class);
+                intent.putExtra("key", pro.getIdtour());
+                context.startActivity(intent);
+
 
 
             }

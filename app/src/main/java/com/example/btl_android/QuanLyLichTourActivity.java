@@ -32,6 +32,7 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
         // Lấy dữ liệu từ Firebase Realtime Database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef1 = database.getReference("lichtour");
+
         myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
