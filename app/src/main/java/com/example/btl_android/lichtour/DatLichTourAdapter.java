@@ -32,7 +32,7 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
     @NonNull
     @Override
     public com.example.btl_android.lichtour.DatLichTourAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//xac dinh view chocac item
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_item3, parent, false);//toi muon dung file my_itemxml trong file nay
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_item4, parent, false);//toi muon dung file my_itemxml trong file nay
         return new com.example.btl_android.lichtour.DatLichTourAdapter.ViewHolder(view);//sl
     }
 
@@ -41,20 +41,12 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
 
         LichTour pro = products.get(position);
 
-        //holder.imgview.setText(pro.getImage());
-        holder.textview1.setText(String.valueOf(pro.getIdlichtour()));
-        holder.textview2.setText(String.valueOf(pro.getIdtour()));
-        holder.textview3.setText(pro.getNgaybatdau());
-        holder.textview4.setText(pro.getNgayketthuc());
+        holder.textview48.setText(pro.getNgaybatdau());
 
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
+        holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef1 = database.getReference("lichtour");
-                myRef1.child(String.valueOf(pro.getIdlichtour())).removeValue();
-                Intent intent = new Intent(context, QuanLyLichTourActivity.class);
-                context.startActivity(intent);
+
             }
         });
 
@@ -69,22 +61,16 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
     public class ViewHolder extends RecyclerView.ViewHolder {//class lay tu layout item//viet phan nay trc
         private CardView cardview;
 
-        private TextView textview1;
-        private TextView textview2;
+        private TextView textview48;
 
-        private TextView textview3;
-        private TextView textview4;
-        private ImageView imageView;
+
         public ViewHolder(@NonNull View itemView) {//khoi tao cac thanh phan de hien cua moi item
 
             super(itemView);
-            cardview = itemView.findViewById(R.id.cardv);
+            cardview = itemView.findViewById(R.id.ccc);
 
-            imageView=itemView.findViewById(R.id.imageView2);
-            textview1 = itemView.findViewById(R.id.textView18);
-            textview2 = itemView.findViewById(R.id.textView20);
-            textview3 = itemView.findViewById(R.id.textView22);
-            textview4 = itemView.findViewById(R.id.textView24);
+
+            textview48 = itemView.findViewById(R.id.textView48);
 
         }
     }

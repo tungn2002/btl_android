@@ -3,7 +3,9 @@ package com.example.btl_android;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +35,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
     TextView tv46;
 
     Button b8;
+    Button b9;
     RecyclerView recyclerView;
 
     @Override
@@ -81,6 +84,20 @@ public class ChiTietTourActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent m=new Intent(ChiTietTourActivity.this, TrangChuActivity.class);
                 startActivity(m);
+            }
+        });
+        b9=findViewById(R.id.button9);
+        b9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sharedPref = ChiTietTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putInt("tourID",  Integer.valueOf(tv44.getText().toString()));
+                editor.apply();
+
+                Intent intent = new Intent(ChiTietTourActivity.this, DatLichTourActivity.class);
+                startActivity(intent);
             }
         });
         //
