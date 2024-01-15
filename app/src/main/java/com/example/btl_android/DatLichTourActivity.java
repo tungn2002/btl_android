@@ -8,8 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.btl_android.lichtour.DatLichTourAdapter;
@@ -30,15 +33,45 @@ public class DatLichTourActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<LichTour> a;
     DatLichTourAdapter adapter;
-    TextView tv47;
     Button b10;
+    TextView tv47;
+    EditText editTextN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_lich_tour);
         tv47=findViewById(R.id.textView47);
+        editTextN=findViewById(R.id.editTextNumber);
+        editTextN.setText("");
+        tv47.setText("0");
+        editTextN.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                SharedPreferences sharedPref3 = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                double dongia = sharedPref3.getFloat("dongia", -1);
+                if(editTextN.getText().toString().equals("")){
+                    tv47.setText("0");
+                }
+                else{
+
+                    double z=Double.valueOf(editTextN.getText().toString())*dongia;
+                    tv47.setText(String.valueOf(z));
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         b10=findViewById(R.id.button10);
         b10.setOnClickListener(new View.OnClickListener() {
             @Override

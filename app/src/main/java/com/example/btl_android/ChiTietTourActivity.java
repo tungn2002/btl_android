@@ -90,12 +90,17 @@ public class ChiTietTourActivity extends AppCompatActivity {
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //luu  tour dang xu ly
                 SharedPreferences sharedPref = ChiTietTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("tourID",  Integer.valueOf(tv44.getText().toString()));
                 editor.apply();
-
+                //luu tong tien
+                SharedPreferences sharedPref2 = ChiTietTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = sharedPref2.edit();
+                editor2.putFloat("dongia", Float.valueOf(tv40.getText().toString()));
+                editor2.apply();
+                //
                 Intent intent = new Intent(ChiTietTourActivity.this, DatLichTourActivity.class);
                 startActivity(intent);
             }
