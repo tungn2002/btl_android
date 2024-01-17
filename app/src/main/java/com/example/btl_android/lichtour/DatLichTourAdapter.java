@@ -2,6 +2,7 @@ package com.example.btl_android.lichtour;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.QuanLyLichTourActivity;
 import com.example.btl_android.R;
+import com.example.btl_android.don.Don;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,7 +48,17 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences sharedPref3 = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                double tongtien = sharedPref3.getFloat("tongtien", -1);
+                int songuoi= sharedPref3.getInt("songuoi",-1);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef1 = database.getReference("don");
+                Don a=new Don();
+                a.setSonguoi(songuoi);
+                a.setTongtien(tongtien);
+                a.setIduser(1);//doiid
+                a.setIdlichtour(pro.getIdlichtour());
+                myRef1.child(String.valueOf(a.getIduser())).child(String.valueOf(a.getIdlichtour())).setValue(a);
             }
         });
 

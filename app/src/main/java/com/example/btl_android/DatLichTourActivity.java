@@ -63,6 +63,13 @@ public class DatLichTourActivity extends AppCompatActivity {
 
                     double z=Double.valueOf(editTextN.getText().toString())*dongia;
                     tv47.setText(String.valueOf(z));
+                    //luu tongtien va so ng
+                    SharedPreferences sharedPref2 = DatLichTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor2 = sharedPref2.edit();
+                    editor2.putFloat("tongtien", (float)z);
+                    editor2.putInt("songuoi",Integer.parseInt(editTextN.getText().toString()));
+                    editor2.apply();
+                    //
                 }
 
             }
