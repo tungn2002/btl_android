@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +37,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
     TextView tv42;
     TextView tv44;
     TextView tv46;
-
+    ImageView iv9;
     Button b8;
     Button b9;
     RecyclerView recyclerView;
@@ -50,6 +54,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
         tv42=findViewById(R.id.textView42);
         tv44=findViewById(R.id.textView44);
         tv46=findViewById(R.id.textView46);
+        iv9=findViewById(R.id.imageView9);
         b8=findViewById(R.id.button8);
 
         //
@@ -67,6 +72,8 @@ public class ChiTietTourActivity extends AppCompatActivity {
                     tv40.setText(String.valueOf(tour.getDongia()));
                     tv42.setText(String.valueOf(tour.getIdkhachsan()));
                     tv44.setText(String.valueOf(tour.getIdtour()));
+                    Bitmap imageBitmap = decodeBase64(tour.getImage());
+                    iv9.setImageBitmap(imageBitmap);
                     tv46.setText(tour.getLichtrinh());
 
                 }
@@ -107,60 +114,11 @@ public class ChiTietTourActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //
-        /*
-        myRef1.child(idd).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Tour value = dataSnapshot.getValue(Tour.class);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-            }
-        });*/
-/*
-        Query query = myRef1.orderByChild("idtour").equalTo(Integer.valueOf(idd));
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot tourSnapshot : dataSnapshot.getChildren()) {
-                    Tour tour = tourSnapshot.getValue(Tour.class);
-                    // Hiển thị thông tin của tour lên các view
-                    tv36.setText(tour.getTentour());
-                    tv38.setText(tour.getDiachixuatphat());
-                    tv40.setText(String.valueOf(tour.getDongia()));
-                    tv42.setText(String.valueOf(tour.getIdkhachsan()));
-                    tv44.setText(String.valueOf(tour.getIdtour()));
-                    tv46.setText(tour.getLichtrinh());
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
-            }
-        });*/
-        /*
-        Query query = myRef1.orderByChild("idtour").equalTo(Integer.valueOf(idd));
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                a.clear(); // Xóa dữ liệu cũ trong ArrayList trước khi thêm mới
-                for (DataSnapshot tourSnapshot : dataSnapshot.getChildren()) {
-                    LichTour tour = tourSnapshot.getValue(LichTour.class);
-                    a.add(tour);
-                }
 
-                // Cập nhật Adapter khi có dữ liệu thay đổi
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
-            }
-        });*/
-
+    }
+    private Bitmap decodeBase64(String base64String) {
+        byte[] decodedBytes = Base64.decode(base64String, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 }

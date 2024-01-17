@@ -10,19 +10,28 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
+        android:background="@drawable/background_gradient"
         android:gravity="center"
-        android:text="Quản lý tour"
-        android:textSize="20sp" />
+        android:text="QUẢN LÝ TOUR"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="match_parent"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
         android:text="Thêm" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quản lý lịch tour" />
 </LinearLayout>

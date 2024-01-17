@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.btl_android.tour.Tour;
 import com.example.btl_android.tour.TourAdapter;
@@ -21,12 +24,32 @@ public class QuanLyActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Tour> a;
     TourAdapter adapter;
+    Button b3;
+    Button b11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly);
 
+        //
+        b3=findViewById(R.id.button3);
+        b11=findViewById(R.id.button11);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent m=new Intent(QuanLyActivity.this, AddTourActivity.class);
+                startActivity(m);
+            }
+        });
+        b11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent m=new Intent(QuanLyActivity.this, QuanLyLichTourActivity.class);
+                startActivity(m);
+            }
+        });
+        //
         a = new ArrayList<>();
         recyclerView = findViewById(R.id.re);
 

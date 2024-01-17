@@ -4,106 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".AddLichTourActivity">
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
+        android:background="@drawable/background_gradient"
         android:gravity="center"
-        android:text="Add lịch tour"
-        android:textSize="20sp" />
+        android:text="THÊM LỊCH TOUR"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="377dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Id: " />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tour" />
-
-            <Spinner
-                android:id="@+id/spinner2"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Id: " />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngày bắt đầu" />
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/editTextDate2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tour" />
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Số ngày" />
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/editTextNumber3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        </TableRow>
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày bắt đầu" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <EditText
+                    android:id="@+id/editTextDate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thêm" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số ngày" />
+
+                <EditText
+                    android:id="@+id/editTextNumber3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="142dp"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:text="Back" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
 </LinearLayout>

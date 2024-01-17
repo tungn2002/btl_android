@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.btl_android.lichtour.LichTour;
 import com.example.btl_android.lichtour.LichTourAdapter;
@@ -26,6 +27,13 @@ public class TrangChuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
+        //
+        String notificationMessage = getIntent().getStringExtra("notificationMessage");
+        if (notificationMessage != null) {
+            // Hiển thị thông báo
+            Toast.makeText(this, notificationMessage, Toast.LENGTH_SHORT).show();
+        }
+        //
         a = new ArrayList<>();
 
         recyclerView=findViewById(R.id.rec);
@@ -59,5 +67,6 @@ public class TrangChuActivity extends AppCompatActivity {
         // Khởi tạo Adapter và gắn nó với RecyclerView
         adapter = new DKTourAdapter(this, a);
         recyclerView.setAdapter(adapter);
+
     }
 }

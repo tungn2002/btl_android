@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.btl_android.lichtour.LichTour;
 import com.example.btl_android.lichtour.LichTourAdapter;
@@ -22,10 +25,31 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<LichTour> a;
     LichTourAdapter adapter;
+    Button b12;
+    Button b14;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly_lich_tour);
+        //
+        b12=findViewById(R.id.button12);
+        b14=findViewById(R.id.button14);
+
+        b12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent m=new Intent(QuanLyLichTourActivity.this, AddLichTourActivity.class);
+                startActivity(m);
+            }
+        });
+        b14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent m=new Intent(QuanLyLichTourActivity.this, QuanLyActivity.class);
+                startActivity(m);
+            }
+        });
+        //
         a = new ArrayList<>();
 
         recyclerView=findViewById(R.id.red);

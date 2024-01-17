@@ -13,8 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.btl_android.DatLichTourActivity;
 import com.example.btl_android.QuanLyLichTourActivity;
 import com.example.btl_android.R;
+import com.example.btl_android.TrangChuActivity;
 import com.example.btl_android.don.Don;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -59,6 +61,10 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
                 a.setIduser(1);//doiid
                 a.setIdlichtour(pro.getIdlichtour());
                 myRef1.child(String.valueOf(a.getIduser())).child(String.valueOf(a.getIdlichtour())).setValue(a);
+                Intent m=new Intent(context, TrangChuActivity.class);
+                m.putExtra("notificationMessage", "Đặt thành công");
+
+                context.startActivity(m);
             }
         });
 
