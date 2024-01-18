@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.btl_android.lichtour.LichTour;
 import com.example.btl_android.lichtour.LichTourAdapter;
@@ -19,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class QuanLyLichTourActivity extends AppCompatActivity {
@@ -27,10 +32,19 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
     LichTourAdapter adapter;
     Button b12;
     Button b14;
+    TextView tv25;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly_lich_tour);
+        //
+        tv25=findViewById(R.id.textView25);
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
+        );
+        tv25.setBackground(gradientDrawable);
+        //
         //
         b12=findViewById(R.id.button12);
         b14=findViewById(R.id.button14);

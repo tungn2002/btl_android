@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +42,7 @@ public class AddTourActivity extends AppCompatActivity {
     Button b1;
     Spinner s;
     Button b5;
+    TextView tvz;
     private String base64Image;
     private ActivityResultLauncher<Intent> imagePickerLauncher;
     ArrayList<String> khachSanIds;
@@ -48,6 +51,16 @@ public class AddTourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tour);
+        //
+        tvz=findViewById(R.id.textView);
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
+        );
+        tvz.setBackground(gradientDrawable);
+        //
+
+
         tv=findViewById(R.id.textView29);
 //hien spinner
 

@@ -9,7 +9,7 @@ public class Tour {
     private int idkhachsan;
     private String image;
 
-    public Tour(int idtour, String tentour, int songuoi, String diachixuatphat, double dongia, String lichtrinh, int idkhachsan, String image) {
+    public Tour(int idtour, String tentour, String diachixuatphat, double dongia, String lichtrinh, int idkhachsan, String image) {
         this.idtour = idtour;
         this.tentour = tentour;
         this.diachixuatphat = diachixuatphat;

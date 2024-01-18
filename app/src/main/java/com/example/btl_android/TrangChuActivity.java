@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.btl_android.lichtour.LichTour;
@@ -23,10 +26,18 @@ public class TrangChuActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Tour> a;
     DKTourAdapter adapter;
+    LinearLayout ln1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
+        //
+        ln1=findViewById(R.id.ln1);
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
+        );
+        ln1.setBackground(gradientDrawable);
         //
         String notificationMessage = getIntent().getStringExtra("notificationMessage");
         if (notificationMessage != null) {

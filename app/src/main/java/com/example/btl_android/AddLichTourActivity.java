@@ -3,6 +3,8 @@ package com.example.btl_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,6 +36,7 @@ public class AddLichTourActivity extends AppCompatActivity {
     Button c;
     ArrayList<String> tourIds;
     ArrayAdapter<String> spinnerAdapter;
+    TextView tv13;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,14 @@ public class AddLichTourActivity extends AppCompatActivity {
         n3=findViewById(R.id.editTextNumber3);
         b=findViewById(R.id.button6);
         tv=findViewById(R.id.textView27);
+        tv13=findViewById(R.id.textView13);
+        //
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
+        );
+        tv13.setBackground(gradientDrawable);
+        //
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

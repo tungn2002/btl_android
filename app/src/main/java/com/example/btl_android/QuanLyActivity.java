@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.btl_android.tour.Tour;
 import com.example.btl_android.tour.TourAdapter;
@@ -27,11 +30,20 @@ public class QuanLyActivity extends AppCompatActivity {
     Button b3;
     Button b11;
 
+    TextView tv8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly);
 
+        //
+        tv8=findViewById(R.id.textView8);
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
+        );
+        tv8.setBackground(gradientDrawable);
+        //
         //
         b3=findViewById(R.id.button3);
         b11=findViewById(R.id.button11);
