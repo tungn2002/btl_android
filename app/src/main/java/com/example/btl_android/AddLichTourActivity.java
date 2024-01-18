@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.btl_android.lichtour.LichTour;
 import com.google.firebase.database.DataSnapshot;
@@ -122,26 +123,33 @@ public class AddLichTourActivity extends AppCompatActivity {
 
                 a.setIdlichtour(Integer.valueOf(tv.getText().toString()));
                 a.setIdtour(Integer.valueOf(sp2.getSelectedItem().toString()));
-                a.setNgaybatdau(t2.getText().toString());
-                //
+                if(t2.getText().toString().isEmpty()||n3.getText().toString().isEmpty()){
+                    Toast.makeText(AddLichTourActivity.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                }else{
+                    a.setNgaybatdau(t2.getText().toString());
+                    //
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Calendar c = Calendar.getInstance();
-                try {
-                    c.setTime(sdf.parse(t2.getText().toString()));
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar c = Calendar.getInstance();
+                    try {
+                        c.setTime(sdf.parse(t2.getText().toString()));
 
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    c.add(Calendar.DATE, Integer.valueOf(n3.getText().toString())); // Số ngày cần thêm
+
+                    sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    //
+                    a.setNgayketthuc(sdf.format(c.getTime()));
+                    myRef1.child(String.valueOf(a.getIdlichtour())).setValue(a);
+                    //
+                    int ht=Integer.valueOf(tv.getText().toString())+1;
+                    tv.setText(String.valueOf(ht));
+                    Toast.makeText(AddLichTourActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+
                 }
-                c.add(Calendar.DATE, Integer.valueOf(n3.getText().toString())); // Số ngày cần thêm
 
-                sdf = new SimpleDateFormat("yyyy-MM-dd");
-                //
-                a.setNgayketthuc(sdf.format(c.getTime()));
-                myRef1.child(String.valueOf(a.getIdlichtour())).setValue(a);
-                //
-                int ht=Integer.valueOf(tv.getText().toString())+1;
-                tv.setText(String.valueOf(ht));
 
                 //
             }

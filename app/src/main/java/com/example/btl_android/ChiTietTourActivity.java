@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.btl_android.khachsan.KhachSan;
 import com.example.btl_android.lichtour.LichTour;
 import com.example.btl_android.lichtour.LichTourAdapter;
 import com.example.btl_android.tour.Tour;
@@ -70,7 +71,29 @@ public class ChiTietTourActivity extends AppCompatActivity {
                     tv36.setText(tour.getTentour());
                     tv38.setText(tour.getDiachixuatphat());
                     tv40.setText(String.valueOf(tour.getDongia()));
-                    tv42.setText(String.valueOf(tour.getIdkhachsan()));
+                    //so sao
+                    String t="khachsan/"+String.valueOf(tour.getIdkhachsan());
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef1 = database.getReference(t);
+
+                    myRef1.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                KhachSan tour2 = dataSnapshot.getValue(KhachSan.class);
+
+                                tv42.setText(String.valueOf(tour2.getSosao())+" sao");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            // Xử lý khi có lỗi xảy ra
+                        }
+                    });
+                    //
+                    //
+
                     tv44.setText(String.valueOf(tour.getIdtour()));
                     Bitmap imageBitmap = decodeBase64(tour.getImage());
                     iv9.setImageBitmap(imageBitmap);

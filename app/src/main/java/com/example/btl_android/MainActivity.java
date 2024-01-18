@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent m=new Intent(MainActivity.this, TrangChuActivity.class);
+                Intent m=new Intent(MainActivity.this, AddTourActivity.class);
                 startActivity(m);
             }
         });

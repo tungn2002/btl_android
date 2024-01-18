@@ -2,6 +2,7 @@ package com.example.btl_android.lichtour;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,11 +58,21 @@ public class LichTourAdapter extends RecyclerView.Adapter<com.example.btl_androi
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef1 = database.getReference("lichtour");
-                myRef1.child(String.valueOf(pro.getIdlichtour())).removeValue();
-                Intent intent = new Intent(context, QuanLyLichTourActivity.class);
-                context.startActivity(intent);
+
+
+                new AlertDialog.Builder(context).setTitle("a").setMessage("Bạn có muốn xóa không")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef1 = database.getReference("lichtour");
+                                myRef1.child(String.valueOf(pro.getIdlichtour())).removeValue();
+                                Intent intent = new Intent(context, QuanLyLichTourActivity.class);
+                                context.startActivity(intent);
+                            }
+                        }).setNegativeButton("Cancel",null).show();
+
+
             }
         });
 

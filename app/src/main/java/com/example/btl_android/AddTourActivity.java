@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.btl_android.tour.Tour;
 import com.google.firebase.database.DataSnapshot;
@@ -137,20 +138,29 @@ public class AddTourActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //
                 Tour a=new Tour();
-                a.setIdtour(Integer.valueOf(tv.getText().toString()));
-                a.setTentour(ten.getText().toString());
-                a.setDiachixuatphat(diachi.getText().toString());
-                a.setDongia(Double.valueOf(gia.getText().toString()));
-                a.setLichtrinh(lich.getText().toString());
-                a.setImage(base64Image);
-                a.setIdkhachsan(Integer.valueOf(s.getSelectedItem().toString()));
-                // Lưu thông tin tour vào Firebase
+                if(tv.getText().toString().isEmpty()||ten.getText().toString().isEmpty()||diachi.getText().toString().isEmpty()||gia.getText().toString().isEmpty()||lich.getText().toString().isEmpty()){
+                    Toast.makeText(AddTourActivity.this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+                }
 
-                DatabaseReference myRef = database.getReference("tour");
+                else{
+                    a.setIdtour(Integer.valueOf(tv.getText().toString()));
+                    a.setTentour(ten.getText().toString());
+                    a.setDiachixuatphat(diachi.getText().toString());
+                    a.setDongia(Double.valueOf(gia.getText().toString()));
+                    a.setLichtrinh(lich.getText().toString());
+                    a.setIdkhachsan(Integer.valueOf(s.getSelectedItem().toString()));
+                    a.setImage(base64Image);
+                    // Lưu thông tin tour vào Firebase
 
-                myRef.child(String.valueOf(a.getIdtour())).setValue(a);
-                int ht=Integer.valueOf(tv.getText().toString())+1;
-                tv.setText(String.valueOf(ht));
+                    DatabaseReference myRef = database.getReference("tour");
+
+                    myRef.child(String.valueOf(a.getIdtour())).setValue(a);
+                    int ht=Integer.valueOf(tv.getText().toString())+1;
+                    tv.setText(String.valueOf(ht));
+                    Toast.makeText(AddTourActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+
+                }
+
                 // Thực hiện các thao tác khác với dữ liệu tour và ảnh đã chọn ở đây
                 //if (base64Image != null) {
                     // Sử dụng base64Image để lưu vào Firebase

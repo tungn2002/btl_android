@@ -1,6 +1,7 @@
 package com.example.btl_android.tour;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,17 +56,19 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {/
         holder.imgview2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef1 = database.getReference("tour");
-                myRef1.child(String.valueOf(pro.getIdtour())).removeValue();
-                Intent intent = new Intent(context, QuanLyActivity.class);
-                //intent.putExtra("bearId", pro.getId());
-                context.startActivity(intent);
-                /*SharedPreferences sharedPref = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                int userID = sharedPref.getInt("userID", -1);
-                repository.add(pro,userID);
-                Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
-*/
+
+                new AlertDialog.Builder(context).setTitle("a").setMessage("Bạn có muốn xóa không")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef1 = database.getReference("tour");
+                                myRef1.child(String.valueOf(pro.getIdtour())).removeValue();
+                                Intent intent = new Intent(context, QuanLyActivity.class);
+                                context.startActivity(intent);
+                            }
+                        }).setNegativeButton("Cancel",null).show();
+
             }
         });
 
