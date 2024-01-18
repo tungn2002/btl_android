@@ -53,14 +53,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Xuất phát:" />
+                android:text="Xuất phát:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView38"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="2dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:src="@drawable/ss_map"
+                 />
         </LinearLayout>
 
         <LinearLayout
@@ -73,14 +83,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Đơn giá:" />
+                android:text="Đơn giá:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,14 +105,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Khách sạn:" />
+                android:text="Khách sạn:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView42"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,27 +127,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Id:" />
+                android:text="Id:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView44"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/textView45"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lịch trình:" />
+            android:text="Lịch trình:"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textView46"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="16dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -143,14 +161,16 @@
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="93dp"
-            android:layout_height="match_parent"
+            android:layout_width="202dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:src="@drawable/ss_3"/>
+            android:background="@drawable/rounded_corners"
+            android:src="@drawable/ss_3" />
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="244dp"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:text="Đặt" />
     </LinearLayout>

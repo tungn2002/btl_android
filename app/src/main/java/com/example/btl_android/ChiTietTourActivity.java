@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -42,13 +43,14 @@ public class ChiTietTourActivity extends AppCompatActivity {
     Button b8;
     Button b9;
     RecyclerView recyclerView;
-
+    ImageView iv8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet_tour);
         Intent intent=getIntent();
         int data = intent.getIntExtra("key",0);
+        iv8=findViewById(R.id.imageView8);
         tv36=findViewById(R.id.textView36);
         tv38=findViewById(R.id.textView38);
         tv40=findViewById(R.id.textView40);
@@ -137,8 +139,19 @@ public class ChiTietTourActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        iv8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchLocation(tv38.getText().toString());
+            }
+        });
 
-
+    }
+    private void searchLocation(String searchText) {
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + searchText);
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
     private Bitmap decodeBase64(String base64String) {
         byte[] decodedBytes = Base64.decode(base64String, Base64.DEFAULT);

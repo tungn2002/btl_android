@@ -35,13 +35,15 @@
                     android:id="@+id/textView26"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Id: " />
+                    android:text="Id: "
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/textView27"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16dp" />
             </TableRow>
 
             <TableRow
@@ -52,7 +54,8 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tour" />
+                    android:text="Tour"
+                    android:textSize="16dp" />
 
                 <Spinner
                     android:id="@+id/spinner2"
@@ -68,14 +71,16 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ngày bắt đầu" />
+                    android:text="Ngày bắt đầu"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/editTextDate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:textSize="16dp" />
             </TableRow>
 
             <TableRow
@@ -86,14 +91,16 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Số ngày" />
+                    android:text="Số ngày"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/editTextNumber3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
             </TableRow>
 
