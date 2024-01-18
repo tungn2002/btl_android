@@ -21,11 +21,14 @@
     <LinearLayout
         android:layout_width="361dp"
         android:layout_height="match_parent"
+        android:background="@drawable/rounded_corners"
+
         android:orientation="vertical">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -35,6 +38,7 @@
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="Id: "
                     android:textSize="16dp" />
 
@@ -54,6 +58,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="Tên tour:"
                     android:textSize="16dp" />
 
@@ -74,6 +79,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="Địa chỉ xuất phát:"
                     android:textSize="16dp" />
 
@@ -95,7 +101,8 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đơn giá"
+                    android:layout_marginLeft="10dp"
+                    android:text="Đơn giá:"
                     android:textSize="16dp" />
 
                 <EditText
@@ -116,7 +123,8 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lịch trình"
+                    android:layout_marginLeft="10dp"
+                    android:text="Lịch trình:"
                     android:textSize="16dp" />
 
                 <EditText
@@ -137,7 +145,8 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Khách sạn"
+                    android:layout_marginLeft="10dp"
+                    android:text="Khách sạn:"
                     android:textSize="16dp" />
 
                 <Spinner
