@@ -122,7 +122,7 @@ public class AddLichTourActivity extends AppCompatActivity {
                     Toast.makeText(AddLichTourActivity.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                 }else{
                     a.setNgaybatdau(t2.getText().toString());
-                    //
+                    //lấy ngày và + vs số ngày.
 
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     Calendar c = Calendar.getInstance();
