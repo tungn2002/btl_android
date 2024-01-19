@@ -45,10 +45,10 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
         );
         tv25.setBackground(gradientDrawable);
         //
-        //
+
         b12=findViewById(R.id.button12);
         b14=findViewById(R.id.button14);
-
+        //Mở trang thêm
         b12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +56,7 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
+        //Mở trang quản lý tour
         b14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,9 +64,8 @@ public class QuanLyLichTourActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
-        //
+        //Hiện dữ liệu
         a = new ArrayList<>();
-
         recyclerView=findViewById(R.id.red);
         // Lấy dữ liệu từ Firebase Realtime Database
         FirebaseDatabase database = FirebaseDatabase.getInstance();

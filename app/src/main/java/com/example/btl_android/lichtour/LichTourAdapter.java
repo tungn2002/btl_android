@@ -1,6 +1,6 @@
 package com.example.btl_android.lichtour;
 
-
+//quản lý tour
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;

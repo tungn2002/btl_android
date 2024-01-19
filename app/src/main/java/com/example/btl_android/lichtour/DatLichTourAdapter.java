@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
-
+//Chọn ngày tour
 public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_android.lichtour.DatLichTourAdapter.ViewHolder> {//bc2
     private List<LichTour> products;//truyen dl tu data vao day
     private Context context;
@@ -46,7 +46,7 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
         LichTour pro = products.get(position);
 
         holder.textview48.setText(pro.getNgaybatdau());
-
+//Đặt tour: 2id, tongtien,songuoi
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

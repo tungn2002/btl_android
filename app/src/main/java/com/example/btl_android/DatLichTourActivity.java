@@ -43,8 +43,9 @@ public class DatLichTourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dat_lich_tour);
         tv47=findViewById(R.id.textView47);
         editTextN=findViewById(R.id.editTextNumber);
-        editTextN.setText("");
-        tv47.setText("0");
+        editTextN.setText("");//so nguoi
+        tv47.setText("0");//tong tien
+        //Mỗi khi nhập số người sẽ thay đổi tổng tiền.
         editTextN.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -53,17 +54,17 @@ public class DatLichTourActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                //Lấy đơn giá
                 SharedPreferences sharedPref3 = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 double dongia = sharedPref3.getFloat("dongia", -1);
-                if(editTextN.getText().toString().equals("")){
+                if(editTextN.getText().toString().equals("")){//trống thì tiền =0
                     tv47.setText("0");
                 }
                 else{
-
+                    //hiện tiền khi nhập
                     double z=Double.valueOf(editTextN.getText().toString())*dongia;
                     tv47.setText(String.valueOf(z));
-                    //luu tongtien va so ng
+                    //luu tongtien va so người để sử dụng trong adapter
                     SharedPreferences sharedPref2 = DatLichTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor2 = sharedPref2.edit();
                     editor2.putFloat("tongtien", (float)z);
@@ -71,15 +72,13 @@ public class DatLichTourActivity extends AppCompatActivity {
                     editor2.apply();
                     //
                 }
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
         b10=findViewById(R.id.button10);
+        //mỏ trang chủ.
         b10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,14 +86,11 @@ public class DatLichTourActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
-//
+//Lấy danh sách lichtour để hiển thị các ngày
         a = new ArrayList<>();
-
         recyclerView=findViewById(R.id.ref);
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef1 = database.getReference("lichtour");
-
         myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -102,19 +98,16 @@ public class DatLichTourActivity extends AppCompatActivity {
                 for (DataSnapshot tourSnapshot : dataSnapshot.getChildren()) {
                     LichTour tour = tourSnapshot.getValue(LichTour.class);
                     SharedPreferences sharedPref = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                    int userID = sharedPref.getInt("tourID", -1);
-                    if(tour.getIdtour()==userID){
+                    int rID = sharedPref.getInt("tourID", -1);
+                    if(tour.getIdtour()==rID){
                         a.add(tour);
                     }
                 }
-
                 // Cập nhật Adapter khi có dữ liệu thay đổi
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
             }
         });
         // Khởi tạo RecyclerView và cài đặt LayoutManager

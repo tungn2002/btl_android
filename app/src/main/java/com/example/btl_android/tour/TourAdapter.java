@@ -25,7 +25,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
+//quản lý tour
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {//bc2
     private List<Tour> products;//truyen dl tu data vao day
     private Context context;
@@ -46,17 +46,13 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {/
     @Override
     public void onBindViewHolder(@NonNull TourAdapter.ViewHolder holder, int position) {//hien thi tung item
         Tour pro = products.get(position);
-        Bitmap imageBitmap = decodeBase64(pro.getImage());
+        Bitmap imageBitmap = decodeBase64(pro.getImage());//chuyển base64 thành bitmap
         holder.imgview.setImageBitmap(imageBitmap);
-        //holder.imgview.setText(pro.getImage());
         holder.textview10.setText(String.valueOf(pro.getIdtour()));
         holder.textview12.setText(pro.getTentour());
-
-
-        holder.imgview2.setOnClickListener(new View.OnClickListener() {
+        holder.imgview2.setOnClickListener(new View.OnClickListener() {//xóa
             @Override
             public void onClick(View v) {
-
                 new AlertDialog.Builder(context).setTitle("a").setMessage("Bạn có muốn xóa không")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
@@ -68,17 +64,14 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {/
                                 context.startActivity(intent);
                             }
                         }).setNegativeButton("Cancel",null).show();
-
             }
         });
-
     }
-
+    //hàm chuyển base64 thành bitmap
     private Bitmap decodeBase64(String base64String) {
-        byte[] decodedBytes = Base64.decode(base64String, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        byte[] decodedBytes = Base64.decode(base64String, Base64.DEFAULT);//mã hóa thành byte
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);//đổi byte thành bỉtmap
     }
-
     @Override
     public int getItemCount() {
         return products.size();//tra ve so lan lap
