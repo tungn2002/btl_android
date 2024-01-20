@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -27,11 +30,25 @@ public class TrangChuActivity extends AppCompatActivity {
     ArrayList<Tour> a;
     DKTourAdapter adapter;
     LinearLayout ln1;
+    ImageView imageView6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
+<<<<<<< HEAD
+        //
+        imageView6 = findViewById(R.id.imageView6);
+        imageView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChuActivity.this, UserDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+=======
         //giao dien: lop tạo gradient
+>>>>>>> a034b41714861fc0aae0d323f68fae37190ca952
         ln1=findViewById(R.id.ln1);
         GradientDrawable gradientDrawable = new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_lichsu.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Tên tour -->
+    <TextView
+        android:id="@+id/tvTenTour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên Tour: "
+        android:textStyle="bold" />
+
+    <!-- Tổng tiền -->
+    <TextView
+        android:id="@+id/tvTongTien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng Tiền: " />
+
+    <!-- Ngày bắt đầu -->
+    <TextView
+        android:id="@+id/tvNgayBatDau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày Bắt Đầu: " />
+
+    <!-- Ngày kết thúc -->
+    <TextView
+        android:id="@+id/tvNgayKetThuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày Kết Thúc: " />
+
+    <Button
+        android:id="@+id/huy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hủy tour" />
+
+</LinearLayout>
