@@ -35,7 +35,7 @@ public class TrangChuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
-<<<<<<< HEAD
+
         //
         imageView6 = findViewById(R.id.imageView6);
         imageView6.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +46,7 @@ public class TrangChuActivity extends AppCompatActivity {
             }
         });
 
-=======
-        //giao dien: lop tạo gradient
->>>>>>> a034b41714861fc0aae0d323f68fae37190ca952
+
         ln1=findViewById(R.id.ln1);
         GradientDrawable gradientDrawable = new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,

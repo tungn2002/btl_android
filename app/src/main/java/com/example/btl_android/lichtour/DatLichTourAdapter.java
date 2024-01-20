@@ -3,20 +3,24 @@ package com.example.btl_android.lichtour;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.DatLichTourActivity;
+import com.example.btl_android.MainActivity;
 import com.example.btl_android.QuanLyLichTourActivity;
 import com.example.btl_android.R;
 import com.example.btl_android.TrangChuActivity;
+import com.example.btl_android.UserDetailActivity;
 import com.example.btl_android.don.Don;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,18 +57,22 @@ public class DatLichTourAdapter extends RecyclerView.Adapter<com.example.btl_and
                 SharedPreferences sharedPref3 = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 double tongtien = sharedPref3.getFloat("tongtien", -1);
                 int songuoi= sharedPref3.getInt("songuoi",-1);
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef1 = database.getReference("don");
-                Don a=new Don();
-                a.setSonguoi(songuoi);
-                a.setTongtien(tongtien);
-                a.setIduser(1);//doiid
-                a.setIdlichtour(pro.getIdlichtour());
-                myRef1.child(String.valueOf(a.getIduser())).child(String.valueOf(a.getIdlichtour())).setValue(a);
-                Intent m=new Intent(context, TrangChuActivity.class);
-                m.putExtra("notificationMessage", "Đặt thành công");
 
-                context.startActivity(m);
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef1 = database.getReference("don");
+                    Don a=new Don();
+                    a.setSonguoi(songuoi);
+                    a.setTongtien(tongtien);
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                    int iduser = sharedPreferences.getInt("iduser", -1);
+                    a.setIduser(iduser);//doiid
+                    a.setIdlichtour(pro.getIdlichtour());
+                    myRef1.child(String.valueOf(a.getIduser())).child(String.valueOf(a.getIdlichtour())).setValue(a);
+                    Intent m=new Intent(context, TrangChuActivity.class);
+                    m.putExtra("notificationMessage", "Đặt thành công");
+                    context.startActivity(m);
+
+
             }
         });
 
