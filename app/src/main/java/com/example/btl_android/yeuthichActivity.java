@@ -42,7 +42,7 @@ public class yeuthichActivity extends AppCompatActivity {
 
         button13 = findViewById(R.id.button13);
 
-        tourRecyclerView = findViewById(R.id.rec1);
+        tourRecyclerView = findViewById(R.id.rec);
         tourItemList = new ArrayList<>();
         TourAdapter = new YeuthichAdapter(tourItemList,yeuthichActivity.this);
 

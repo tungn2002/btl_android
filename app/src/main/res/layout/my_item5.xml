@@ -6,7 +6,6 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
-
     <!-- ImageView để hiển thị hình ảnh -->
 
     <!-- LinearLayout để chứa thông tin tentour và dongia -->
@@ -18,15 +17,16 @@
         android:orientation="vertical">
 
         <!-- TextView để hiển thị tentour -->
-
-        <!-- TextView để hiển thị dongia -->
         <TextView
             android:id="@+id/tvTenTour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tên Tour"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="#000000" /> <!-- Màu trắng -->
+
+        <!-- TextView để hiển thị dongia -->
 
     </LinearLayout>
 
@@ -34,5 +34,7 @@
         android:id="@+id/huyyt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hủy Yêu Thích" />
+        android:layout_gravity="center_vertical"
+        android:text="Hủy Yêu Thích"
+        android:backgroundTint="#E10D0D"/>
 </LinearLayout>
