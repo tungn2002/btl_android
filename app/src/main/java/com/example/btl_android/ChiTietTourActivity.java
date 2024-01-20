@@ -60,12 +60,11 @@ public class ChiTietTourActivity extends AppCompatActivity {
         iv9=findViewById(R.id.imageView9);
         b8=findViewById(R.id.button8);
 
-        //
+        //Lấy dữ liệu theo idtour được chọn
         String t="tour/"+String.valueOf(data);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef1 = database.getReference(t);
-
-        myRef1.addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef1.addListenerForSingleValueEvent(new ValueEventListener() {//nghe 1 lần duy nhất .k load
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -73,7 +72,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
                     tv36.setText(tour.getTentour());
                     tv38.setText(tour.getDiachixuatphat());
                     tv40.setText(String.valueOf(tour.getDongia()));
-                    //so sao
+                    //lấy số sao của khach san
                     String t="khachsan/"+String.valueOf(tour.getIdkhachsan());
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef1 = database.getReference(t);
@@ -83,34 +82,26 @@ public class ChiTietTourActivity extends AppCompatActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
                                 KhachSan tour2 = dataSnapshot.getValue(KhachSan.class);
-
                                 tv42.setText(String.valueOf(tour2.getSosao())+" sao");
                             }
                         }
-
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
-                            // Xử lý khi có lỗi xảy ra
                         }
                     });
-                    //
-                    //
-
                     tv44.setText(String.valueOf(tour.getIdtour()));
-                    Bitmap imageBitmap = decodeBase64(tour.getImage());
+                    Bitmap imageBitmap = decodeBase64(tour.getImage());//chuyển ảnh thành
                     iv9.setImageBitmap(imageBitmap);
                     tv46.setText(tour.getLichtrinh());
-
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Xử lý khi có lỗi xảy ra
             }
         });
 
-        //
+        //Mo trang chủ
         b8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,26 +110,24 @@ public class ChiTietTourActivity extends AppCompatActivity {
             }
         });
         b9=findViewById(R.id.button9);
+        //Nút đặt tour
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //luu  tour dang xu ly
+                //Lưu tour đang xử lý
                 SharedPreferences sharedPref = ChiTietTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("tourID",  Integer.valueOf(tv44.getText().toString()));
                 editor.apply();
-                //luu tong tien va lichtour
+                //Lưu tổng tiền
                 SharedPreferences sharedPref2 = ChiTietTourActivity.this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor2 = sharedPref2.edit();
                 editor2.putFloat("dongia", Float.valueOf(tv40.getText().toString()));
                 editor2.apply();
-                //luu lichtoi
-
-                //
                 Intent intent = new Intent(ChiTietTourActivity.this, DatLichTourActivity.class);
                 startActivity(intent);
             }
-        });
+        });//Mở map
         iv8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +136,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
         });
 
     }
-    private void searchLocation(String searchText) {
+    private void searchLocation(String searchText) {//hàm mở googlemap và tìm
         Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + searchText);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
@@ -157,4 +146,5 @@ public class ChiTietTourActivity extends AppCompatActivity {
         byte[] decodedBytes = Base64.decode(base64String, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
+    //Chuỗi Base64 sẽ bao gồm các ký tự trong bảng Base64, biểu diễn dữ liệu nhị phân của hình ảnh
 }

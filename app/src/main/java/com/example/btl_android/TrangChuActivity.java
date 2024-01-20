@@ -35,6 +35,7 @@ public class TrangChuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
+<<<<<<< HEAD
         //
         imageView6 = findViewById(R.id.imageView6);
         imageView6.setOnClickListener(new View.OnClickListener() {
@@ -45,27 +46,28 @@ public class TrangChuActivity extends AppCompatActivity {
             }
         });
 
+=======
+        //giao dien: lop tạo gradient
+>>>>>>> a034b41714861fc0aae0d323f68fae37190ca952
         ln1=findViewById(R.id.ln1);
         GradientDrawable gradientDrawable = new GradientDrawable(
                 GradientDrawable.Orientation.LEFT_RIGHT,
                 new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
         );
         ln1.setBackground(gradientDrawable);
-        //
+        //Thong bao: dat thanh cong
         String notificationMessage = getIntent().getStringExtra("notificationMessage");
         if (notificationMessage != null) {
             // Hiển thị thông báo
             Toast.makeText(this, notificationMessage, Toast.LENGTH_SHORT).show();
         }
-        //
+        //Hien danh sách tour
         a = new ArrayList<>();
-
         recyclerView=findViewById(R.id.rec);
-
-        // Lấy dữ liệu từ Firebase Realtime Database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef1 = database.getReference("tour");
-        myRef1.addValueEventListener(new ValueEventListener() {
+        // Lấy dữ liệu từ Firebase Realtime Database+ mỗi khi có dl thay đổi =>load
+        FirebaseDatabase database = FirebaseDatabase.getInstance();//khởi tạo
+        DatabaseReference myRef1 = database.getReference("tour");//tham chiếu đến dl
+        myRef1.addValueEventListener(new ValueEventListener() {//dlt thay đổi=>ValueEventListener: trả về all ds vào 1 datasnapshot
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 a.clear(); // Xóa dữ liệu cũ trong ArrayList trước khi thêm mới
@@ -85,12 +87,12 @@ public class TrangChuActivity extends AppCompatActivity {
         });
 
         // Khởi tạo RecyclerView và cài đặt LayoutManager
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);//tạo lưới chứa item
+        recyclerView.setLayoutManager(layoutManager);//set layout cho recyle
 
         // Khởi tạo Adapter và gắn nó với RecyclerView
-        adapter = new DKTourAdapter(this, a);
-        recyclerView.setAdapter(adapter);
+        adapter = new DKTourAdapter(this, a);//truyền activity và arraylist đối tượng
+        recyclerView.setAdapter(adapter);//gán dl cho giao diện để hiển thị dl
 
     }
 }

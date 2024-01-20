@@ -55,7 +55,7 @@ public class AddLichTourActivity extends AppCompatActivity {
                 new int[] {Color.parseColor("#04E1FF"), Color.parseColor("#EEEFEE")}
         );
         tv13.setBackground(gradientDrawable);
-        //
+        //Mở trang quản lý lichtour
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +63,7 @@ public class AddLichTourActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
-        //hien dl
+        //Lấy ds tour cho vào spinner
         tourIds = new ArrayList<>();
         spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tourIds);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -81,16 +81,10 @@ public class AddLichTourActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
             }
         });
-
-
-
-        // them
-//test lay id:
+        //Lấy id lớn nhất của lichtour:
         DatabaseReference myRef4 = database.getReference("lichtour");
-
         myRef4.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -107,28 +101,18 @@ public class AddLichTourActivity extends AppCompatActivity {
                         maxId = id;
                     }
                 }
-
                 // Gán giá trị ID lớn nhất vào biến int
                 int largestId = maxId+1;
                 tv.setText(String.valueOf(largestId));
-                // Sử dụng largestId de them:
-
-
-                //
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
             }
         });
+        //Nút thêm
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //lay id max
-
-
-                //
                 DatabaseReference myRef1 = database.getReference("lichtour");
                 LichTour a=new LichTour();
 
@@ -138,7 +122,7 @@ public class AddLichTourActivity extends AppCompatActivity {
                     Toast.makeText(AddLichTourActivity.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                 }else{
                     a.setNgaybatdau(t2.getText().toString());
-                    //
+                    //lấy ngày và + vs số ngày.
 
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     Calendar c = Calendar.getInstance();

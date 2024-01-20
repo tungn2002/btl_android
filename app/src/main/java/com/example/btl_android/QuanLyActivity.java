@@ -90,9 +90,9 @@ public class QuanLyActivity extends AppCompatActivity {
         );
         tv8.setBackground(gradientDrawable);
         //
-        //
         b3=findViewById(R.id.button3);
         b11=findViewById(R.id.button11);
+        //Mở trang thêm
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +100,7 @@ public class QuanLyActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
+        //Mở trang quản lý lich tour
         b11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +108,7 @@ public class QuanLyActivity extends AppCompatActivity {
                 startActivity(m);
             }
         });
-        //
+        //Hiện dữ liệu
         a = new ArrayList<>();
         recyclerView = findViewById(R.id.re);
 
