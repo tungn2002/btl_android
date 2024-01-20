@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Btl_android"
         tools:targetApi="31">
         <activity
+            android:name=".yeuthichActivity"
+            android:exported="false" />
+        <activity
             android:name=".DatLichTourActivity"
             android:exported="false" />
         <activity

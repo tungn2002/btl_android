@@ -1,0 +1,38 @@
+<!-- item_3.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+
+    <!-- ImageView để hiển thị hình ảnh -->
+
+    <!-- LinearLayout để chứa thông tin tentour và dongia -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- TextView để hiển thị tentour -->
+
+        <!-- TextView để hiển thị dongia -->
+        <TextView
+            android:id="@+id/tvTenTour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Tour"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/huyyt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hủy Yêu Thích" />
+</LinearLayout>

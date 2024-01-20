@@ -31,6 +31,7 @@ public class TrangChuActivity extends AppCompatActivity {
     DKTourAdapter adapter;
     LinearLayout ln1;
     ImageView imageView6;
+    ImageView imageView5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,14 @@ public class TrangChuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TrangChuActivity.this, UserDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        imageView5 = findViewById(R.id.imageView5);
+        imageView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChuActivity.this, yeuthichActivity.class);
                 startActivity(intent);
             }
         });

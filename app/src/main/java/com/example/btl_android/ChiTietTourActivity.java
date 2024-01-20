@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -18,17 +19,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.btl_android.khachsan.KhachSan;
-import com.example.btl_android.lichtour.LichTour;
-import com.example.btl_android.lichtour.LichTourAdapter;
 import com.example.btl_android.tour.Tour;
+import com.example.btl_android.yeuthich.Yeuthich;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class ChiTietTourActivity extends AppCompatActivity {
 
@@ -44,6 +41,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
     Button b9;
     RecyclerView recyclerView;
     ImageView iv8;
+    ImageView imageView11;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +57,8 @@ public class ChiTietTourActivity extends AppCompatActivity {
         tv46=findViewById(R.id.textView46);
         iv9=findViewById(R.id.imageView9);
         b8=findViewById(R.id.button8);
+        imageView11 = findViewById(R.id.imageView11);
+
 
         //Lấy dữ liệu theo idtour được chọn
         String t="tour/"+String.valueOf(data);
@@ -77,6 +77,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef1 = database.getReference(t);
 
+
                     myRef1.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -93,6 +94,7 @@ public class ChiTietTourActivity extends AppCompatActivity {
                     Bitmap imageBitmap = decodeBase64(tour.getImage());//chuyển ảnh thành
                     iv9.setImageBitmap(imageBitmap);
                     tv46.setText(tour.getLichtrinh());
+
                 }
             }
             @Override
@@ -132,6 +134,22 @@ public class ChiTietTourActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 searchLocation(tv38.getText().toString());
+            }
+        });
+        imageView11.setOnClickListener(new View.OnClickListener() { //yeu thich
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ChiTietTourActivity.this);
+                int iduser = sharedPreferences.getInt("iduser", -1); // 0 là giá trị mặc định nếu không tìm thấy "iduser"
+                DatabaseReference yeuthichRef = FirebaseDatabase.getInstance().getReference("yeuthich");
+                ;// Tạo một đối tượng Yeuthich mới
+                Yeuthich yeuthich = new Yeuthich();
+                yeuthich.setIdtour(Integer.valueOf(tv44.getText().toString()));
+                yeuthich.setIduser(iduser);
+
+// Đặt giá trị của đối tượng Yeuthich vào Firebase Realtime Database
+                yeuthichRef.child(String.valueOf(yeuthich.getIduser())).child(String.valueOf(yeuthich.getIdtour())).setValue(yeuthich);
+                Toast.makeText(ChiTietTourActivity.this, "Yêu thích Tour thành công", Toast.LENGTH_SHORT).show();
             }
         });
 
