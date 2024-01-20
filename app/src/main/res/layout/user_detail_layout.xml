@@ -1,85 +1,100 @@
-<!-- user_detail_layout.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quản lý người dùng"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên người dùng: John Doe"
+        android:textSize="18sp"
+        android:textColor="#555555"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tvMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: john.doe@example.com"
+        android:textSize="18sp"
+        android:textColor="#555555"
+        android:layout_below="@id/tvTen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    t<TextView
+        android:id="@+id/tvSdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại: +1234567890"
+        android:textSize="18sp"
+        android:textColor="#555555"
+        android:layout_below="@id/tvMail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnDangXuat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quay lại" />
-        <Button
-            android:id="@+id/btnDangXuat"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:text="Đăng Xuất" />
-        <!-- Chèn hình ảnh trước các TextView -->
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:text="Đăng xuất"
+        android:textSize="18sp"
+        android:backgroundTint="#e74c3c"
+        android:textColor="#ffffff"
+        android:layout_below="@id/tvSdt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:onClick="logoutClicked" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_1" />
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/tvTen"
+        android:layout_below="@id/btnDangXuat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/lichsu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Tên người dùng"
-            android:textAlignment="center" />
+            android:text="Quản lý lịch sử"
+            android:textSize="18sp"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="10dp"
+            android:padding="16dp"
+            android:onClick="historyClicked" />
 
-        <TextView
-            android:id="@+id/tvMail"
+        <Button
+            android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Email"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/tvSdt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Số điện thoại"
-            android:textAlignment="center" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/lichsu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lịch sử đơn hàng" />
-
-        </LinearLayout>
-
+            android:text="Quay lại"
+            android:textSize="18sp"
+            android:backgroundTint="#2ecc71"
+            android:textColor="#ffffff"
+            android:padding="16dp"
+            android:onClick="goBackClicked" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

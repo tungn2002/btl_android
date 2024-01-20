@@ -7,32 +7,18 @@
     android:background="@drawable/img"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/purple_200"
-        android:alpha="0.7"/>
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/purple_200"-->
+<!--        android:alpha="0.7"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_above="@+id/card_view"
-        android:padding="28dp">
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/traidat"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TRAVEL"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center|top"
-            android:textSize="32sp"
-            android:textColor="@color/black"/>
-    </LinearLayout>
+        android:padding="28dp"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,13 +31,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="28dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wellcome"
-                android:textColor="@color/purple_200"
+                android:textColor="#2196F3"
                 android:textSize="32sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,19 +88,22 @@
                     android:layout_centerInParent="true"
                     android:background="@android:color/transparent"
                     android:text="Chuyển đến trang đăng ký"
-                    android:textColor="#6200EE" />
+                    android:textColor="#1EA7E4" />
             </RelativeLayout>
             <!--nút đăng nhập-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
 
+            <!--nút đăng nhập-->
             <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Đăng nhập"
+                android:backgroundTint="#3498db"
                 app:cornerRadius="32dp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>

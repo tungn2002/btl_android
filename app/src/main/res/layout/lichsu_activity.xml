@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lịch sử giao dịch"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lichSuRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle" />
 
     <Button
         android:id="@+id/quaylai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quay lại"
-        android:layout_marginBottom="50dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lichSuRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/lichSuRecyclerView"
+        android:backgroundTint="#2ecc71"/>
+</RelativeLayout>
