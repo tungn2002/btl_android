@@ -62,9 +62,6 @@ public class DKTourAdapter extends RecyclerView.Adapter<DKTourAdapter.ViewHolder
                 Intent intent = new Intent(context, ChiTietTourActivity.class);
                 intent.putExtra("key", pro.getIdtour());
                 context.startActivity(intent);
-
-
-
             }
         });
 
